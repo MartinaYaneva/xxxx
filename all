@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <style>
+body {
+    margin: 0;
+    font-family: Outfit, sans-serif;
+    background: #f0f0f0;
+    overflow-x: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+}
+
+.carousel {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    position: relative;
+    transition: transform 2s ease-in-out;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: space-around;
+    flex-shrink: 0;
+}
+
+.carousel-item {
+    flex: 0 0 30%;
+    text-align: center;
+    padding: 20px;
+    background: transparent;
+    color: white;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.carousel-item h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+ 	 color:#fff;
+}
+
+.carousel-item p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.carousel-item button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: 2px solid white;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+   @media (max-width: 1024px) {
+    .carousel {
+        width: 200%;
+    }
+
+    .carousel-slide {
+        width: 50%;
+    }
+
+    .carousel-item {
+        flex: 0 0 80%;
+        margin: 10%;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel {
+        width: 300%;
+    }
+
+    .carousel-slide {
+        width: 33.3333%;
+    }
+
+    .carousel-item {
+        flex: 0 0 80%;
+        margin: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel {
+       display:flex;
+      flex-direction:column;
+    }
+
+    .carousel-slide {
+           display:flex;
+      flex-direction:column;
+    }
+
+    .carousel-item {
+          display:flex;
+      flex-direction:column;
+    }
+}
+
+  </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-slide">
+            <div class="carousel-item">
+              <span>01</span>
+                <h2>Custom Solutions</h2>
+                <p>We work deligently to ensure we understand the customer's needs and goals</p>
+              <a href='https://zettaonline.com/services/'>
+                <button>See More</button>
+                </a>
+            </div>
+            <div class="carousel-item">
+              <span>02</span>
+                <h2>Cyber Security Services</h2>
+                <p>We work deligently to ensure we understand the customer's needs and goals</p>
+                       <a href='https://zettaonline.com/services/cyber-security-services/'>
+                <button>See More</button>
+                </a>
+            </div>
+            <div class="carousel-item">
+              <span>03</span>
+                <h2>IT Infrastructure</h2>
+                <p>We work deligently to ensure we understand the customer's needs and goals</p>
+                      <a href='https://zettaonline.com/services/it-infrastructure/'>
+                <button>See More</button>
+                </a>
+            </div>
+        </div>
+        <div class="carousel-slide">
+            <div class="carousel-item">
+              <span>04</span>
+                <h2>Server & System Administration</h2>
+                <p>We work deligently to ensure we understand the customer's needs and goals</p>
+                        <a href='https://zettaonline.com/services/server-system-administration/'>
+                <button>See More</button>
+                </a>
+            </div>
+            <div class="carousel-item">
+              <span>05</span>
+                <h2>Cloud Services</h2>
+                <p>We work deligently to ensure we understand the customer's needs and goals</p>
+                 <a href='https://zettaonline.com/services/cloud-services/'>
+                <button>See More</button>
+                </a>
+            </div>
+            <div class="carousel-item">
+              <span>06</span>
+                <h2>Software Development</h2>
+                <p>We work deligently to ensure we understand the customer's needs and goals</p>
+                 <a href='https://zettaonline.com/services/software-development/'>
+                <button>See More</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script>
+      let currentSlide = 0;
+const slides = document.querySelector('.carousel');
+const totalSlides = document.querySelectorAll('.carousel-slide').length;
+
+function showSlide(slideIndex) {
+    const offset = slideIndex * -100 / totalSlides;
+    slides.style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    showSlide(currentSlide);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentSlide);
+    setInterval(nextSlide, 3000);
+});
+
+  </script>
+</body>
+</html>
